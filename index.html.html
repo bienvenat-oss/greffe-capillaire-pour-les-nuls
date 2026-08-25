@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Observatoire de la Greffe Capillaire — Comparatif indépendant des cliniques de greffe de cheveux</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EEE8;
+    --paper-card:#FFFFFF;
+    --ink:#231714;
+    --ink-soft:#5C4A44;
+    --teal:#5C2A2E;
+    --teal-deep:#3A1518;
+    --amber:#B97A4D;
+    --amber-soft:#E6C6A8;
+    --line:#DED2C6;
+    --danger:#8A3B2E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber-soft);}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:'Fraunces', serif;margin:0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--amber);display:inline-block;}
+
+  /* ---------- notice ---------- */
+  .example-notice{
+    background:var(--teal-deep);
+    color:#DDE7E2;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-align:center;
+    padding:9px 18px;
+    letter-spacing:.02em;
+  }
+
+  /* ---------- header ---------- */
+  header.site{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(140%) blur(6px);
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+    gap:24px;
+  }
+  .logo{
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .logo-mark{
+    width:30px;height:30px;border-radius:50%;
+    background:conic-gradient(var(--amber) 0deg 313deg, var(--line) 313deg 360deg);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .logo-mark::after{
+    content:"";width:19px;height:19px;border-radius:50%;background:var(--paper);
+  }
+  .logo-text{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:18.5px;
+    letter-spacing:-0.01em;
+  }
+  .logo-text em{font-style:italic;color:var(--teal);}
+  nav.main{display:flex;gap:26px;font-size:14.5px;}
+  nav.main a{color:var(--ink-soft);transition:color .15s;position:relative;}
+  nav.main a:hover, nav.main a:focus-visible{color:var(--teal);}
+  nav.main a:hover::after, nav.main a:focus-visible::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--amber);
+  }
+  .lang-switch{font-family:'IBM Plex Mono', monospace;font-size:12px;color:var(--ink-soft);display:flex;gap:6px;}
+  .lang-switch b{color:var(--ink);}
+  .menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer;}
+  .menu-toggle span{display:block;width:18px;height:2px;background:var(--ink);margin:3px 0;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:76px 0 60px;position:relative;overflow:hidden;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:start;
+  }
+  .hero h1{
+    font-size:clamp(34px,4.6vw,54px);
+    font-weight:500;
+    line-height:1.06;
+    letter-spacing:-0.015em;
+    margin:18px 0 22px;
+  }
+  .hero h1 .accent{font-style:italic;color:var(--teal);}
+  .hero p.lede{
+    font-size:17px;color:var(--ink-soft);max-width:52ch;margin:0 0 30px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:500;font-size:14.5px;
+    padding:13px 22px;border-radius:3px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--teal-deep);color:#F2EFE6;}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(18,56,50,.25);}
+  .btn-ghost{border-color:var(--line);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--teal);}
+
+  .hero-stats{display:flex;gap:34px;margin-top:38px;}
+  .stat b{
+    display:block;font-family:'Fraunces', serif;font-size:32px;font-weight:500;color:var(--teal-deep);
+  }
+  .stat span{font-size:12.5px;color:var(--ink-soft);}
+
+  /* dial card */
+  .dial-card{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:26px 26px 22px;
+    box-shadow:0 18px 40px -22px rgba(18,34,31,.35);
+  }
+  .dial-card .cap{
+    font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px;display:block;
+  }
+  .dial-row{display:flex;align-items:center;gap:18px;padding:13px 0;border-top:1px solid var(--line);}
+  .dial-row:first-of-type{border-top:none;}
+  .rank-num{
+    font-family:'IBM Plex Mono', monospace;font-size:13px;color:var(--ink-soft);width:16px;
+  }
+  .dial{
+    --pct:85;
+    width:46px;height:46px;border-radius:50%;flex-shrink:0;
+    background:conic-gradient(var(--teal) calc(var(--pct)*1%), var(--line) 0);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .dial::after{
+    content:attr(data-score);
+    width:36px;height:36px;border-radius:50%;background:var(--paper-card);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono', monospace;font-size:12px;font-weight:500;color:var(--teal-deep);
+  }
+  .dial-name{flex:1;}
+  .dial-name b{font-size:14.5px;font-weight:600;display:block;}
+  .dial-name span{font-size:12px;color:var(--ink-soft);}
+
+  /* ---------- section shell ---------- */
+  section{padding:64px 0;border-top:1px solid var(--line);}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin:16px 0 40px;flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(26px,3vw,36px);font-weight:500;letter-spacing:-0.01em;max-width:22ch;}
+  .section-head .sub{max-width:36ch;color:var(--ink-soft);font-size:14.5px;}
+
+  /* ---------- methodology ---------- */
+  .crit-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .crit{background:var(--paper-card);padding:28px 24px;min-height:190px;display:flex;flex-direction:column;gap:10px;}
+  .crit .num{font-family:'IBM Plex Mono', monospace;color:var(--amber);font-size:13px;letter-spacing:.05em;}
+  .crit h3{font-size:18px;font-weight:600;font-family:'IBM Plex Sans', sans-serif;}
+  .crit p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+  .crit.weighted{background:var(--teal-deep);color:#EFEDE3;}
+  .crit.weighted .num{color:var(--amber);}
+  .crit.weighted p{color:#C9D6D0;}
+
+  /* ---------- ranking table ---------- */
+  .rank-table{width:100%;border-collapse:collapse;font-size:14.5px;}
+  .rank-table thead th{
+    text-align:left;font-family:'IBM Plex Mono', monospace;font-size:11px;text-transform:uppercase;
+    letter-spacing:.08em;color:var(--ink-soft);padding:0 14px 12px;border-bottom:1px solid var(--ink);
+    font-weight:500;
+  }
+  .rank-table tbody td{padding:16px 14px;border-bottom:1px solid var(--line);vertical-align:middle;}
+  .rank-table tbody tr{transition:background .15s;}
+  .rank-table tbody tr:hover{background:rgba(31,75,68,.045);}
+  .rk{font-family:'IBM Plex Mono', monospace;color:var(--ink-soft);}
+  .clinic-cell b{display:block;font-weight:600;}
+  .clinic-cell span{font-size:12px;color:var(--ink-soft);}
+  .flag{font-size:13px;margin-right:4px;}
+  .score-pill{
+    font-family:'IBM Plex Mono', monospace;font-weight:500;
+    background:var(--teal-deep);color:#F1EFE6;padding:5px 10px;border-radius:20px;font-size:13px;
+  }
+  .doc-tag{
+    font-size:11.5px;padding:3px 9px;border-radius:20px;border:1px solid var(--line);color:var(--ink-soft);
+  }
+  .doc-tag.high{border-color:var(--teal);color:var(--teal);}
+
+  /* ---------- situations ---------- */
+  .sit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .sit-card{
+    background:var(--paper-card);border:1px solid var(--line);padding:26px 22px;border-radius:4px;
+    display:flex;flex-direction:column;gap:10px;transition:border-color .15s, transform .15s;
+  }
+  .sit-card:hover{border-color:var(--teal);transform:translateY(-2px);}
+  .sit-card .k{font-family:'IBM Plex Mono', monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);}
+  .sit-card h3{font-size:17px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;}
+  .sit-card .arrow{margin-top:auto;font-size:13px;color:var(--teal);}
+
+  /* ---------- independence ---------- */
+  .indep{
+    background:var(--teal-deep);color:#EFEDE3;border-radius:6px;padding:52px;
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  }
+  .indep h2{color:#F5F2E8;font-size:28px;font-weight:500;}
+  .indep p{color:#C9D6D0;font-size:15px;max-width:44ch;}
+  .indep ul{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-direction:column;gap:12px;}
+  .indep li{display:flex;gap:12px;font-size:14.5px;align-items:flex-start;}
+  .check{
+    flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--amber);
+    display:flex;align-items:center;justify-content:center;color:var(--teal-deep);font-size:12px;font-weight:700;
+    margin-top:1px;
+  }
+  .indep-link{
+    display:inline-flex;align-items:center;gap:8px;margin-top:26px;
+    border-bottom:1px solid var(--amber);padding-bottom:3px;font-size:14px;color:var(--amber-soft);
+  }
+
+  /* ---------- guides ---------- */
+  .guide-strip{display:flex;gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--paper-card);}
+  .guide-item{
+    flex:1;padding:26px 20px;border-right:1px solid var(--line);position:relative;
+    transition:background .15s;
+  }
+  .guide-item:last-child{border-right:none;}
+  .guide-item:hover{background:rgba(200,155,60,.07);}
+  .guide-item .num{font-family:'IBM Plex Mono', monospace;font-size:11px;color:var(--ink-soft);}
+  .guide-item h3{font-size:14.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;margin-top:10px;line-height:1.35;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:52px 0 30px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  .foot-logo{font-family:'Fraunces', serif;font-size:19px;font-weight:500;margin-bottom:10px;}
+  .foot-desc{font-size:13.5px;color:var(--ink-soft);max-width:34ch;}
+  .foot-col h4{font-family:'IBM Plex Mono', monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:14px;}
+  .foot-col a{display:block;font-size:13.5px;color:var(--ink);margin-bottom:9px;}
+  .foot-col a:hover{color:var(--teal);}
+  .foot-bottom{
+    border-top:1px solid var(--line);padding-top:22px;
+    font-size:12px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  @media (max-width:860px){
+    nav.main, .lang-switch{display:none;}
+    .menu-toggle{display:inline-flex;flex-direction:column;}
+    .hero-grid{grid-template-columns:1fr;}
+    .crit-list{grid-template-columns:1fr;}
+    .sit-grid{grid-template-columns:1fr;}
+    .indep{grid-template-columns:1fr;padding:34px;}
+    .foot-grid{grid-template-columns:1fr;}
+    .guide-strip{flex-direction:column;}
+    .guide-item{border-right:none;border-bottom:1px solid var(--line);}
+    .rank-table{display:block;overflow-x:auto;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="example-notice">Site de démonstration — cliniques, notes et avis fictifs, à titre d'exemple de mise en forme uniquement.</div>
+
+<!-- CSS thème greffe capillaire : accent rouille remplace l'ambre -->
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="#" class="logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-text">L'<em>Observatoire</em> de la Greffe Capillaire</span>
+    </a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="#classement">Classement</a>
+      <a href="#methode">Méthode</a>
+      <a href="#villes">Villes</a>
+      <a href="#guides">Guides</a>
+      <a href="#apropos">À propos</a>
+    </nav>
+    <div class="lang-switch"><b>FR</b><span>/</span><span>EN</span></div>
+    <button class="menu-toggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" style="border-top:none;">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Édition 2026 · Comparatif indépendant</span>
+      <h1>On ne compte pas les greffons<br>comme on <span class="accent">compte les billets.</span></h1>
+      <p class="lede">Nous notons chaque clinique de greffe capillaire sur des critères médicaux vérifiables — à commencer par qui prélève et implante réellement les greffons. Trente-huit cliniques, une note sur 100, aucune place à vendre.</p>
+      <div class="hero-ctas">
+        <a href="#classement" class="btn btn-primary">Voir le classement</a>
+        <a href="#methode" class="btn btn-ghost">Comment nous notons →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>38</b><span>cliniques analysées</span></div>
+        <div class="stat"><b>6</b><span>critères d'évaluation</span></div>
+        <div class="stat"><b>0</b><span>commission d'orientation</span></div>
+      </div>
+    </div>
+
+    <div class="dial-card">
+      <span class="cap">En tête du classement</span>
+      <div class="dial-row">
+        <span class="rank-num">01</span>
+        <span class="dial" data-score="87" style="--pct:87;"></span>
+        <span class="dial-name"><b>Dr. Karim Benaïssa</b><span>🇫🇷 Lyon · chirurgien unique</span></span>
+      </div>
+      <div class="dial-row">
+        <span class="rank-num">02</span>
+        <span class="dial" data-score="84" style="--pct:84;"></span>
+        <span class="dial-name"><b>Institut Follicis</b><span>🇫🇷 Paris · équipe de 4 praticiens</span></span>
+      </div>
+      <div class="dial-row">
+        <span class="rank-num">03</span>
+        <span class="dial" data-score="79" style="--pct:79;"></span>
+        <span class="dial-name"><b>Clinique Aydın</b><span>🇹🇷 Istanbul · établissement dédié</span></span>
+      </div>
+      <div class="dial-row">
+        <span class="rank-num">04</span>
+        <span class="dial" data-score="75" style="--pct:75;"></span>
+        <span class="dial-name"><b>Cabinet Reverdy</b><span>🇫🇷 Nantes · chirurgien unique</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="methode">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Comment nous notons</h2>
+      <p class="sub">Une évaluation éditoriale, pas un calcul automatique : nous pesons six critères, du plus déterminant au plus secondaire.</p>
+    </div>
+    <div class="crit-list">
+      <div class="crit weighted">
+        <span class="num">01 — poids fort</span>
+        <h3>Qui prélève et implante</h3>
+        <p>Chirurgien, médecin ou technicien : identité et qualification de la personne qui manipule réellement les greffons, du prélèvement à l'implantation.</p>
+      </div>
+      <div class="crit weighted">
+        <span class="num">02 — poids fort</span>
+        <h3>Technique et densité annoncée</h3>
+        <p>FUE, FUT ou DHI, méthode de calcul du nombre de greffons, et cohérence entre la densité promise et la surface à couvrir.</p>
+      </div>
+      <div class="crit">
+        <span class="num">03</span>
+        <h3>Bilan capillaire préalable</h3>
+        <p>Évaluation de la zone donneuse, diagnostic du type de calvitie, capacité à déconseiller l'intervention si elle est prématurée.</p>
+      </div>
+      <div class="crit">
+        <span class="num">04</span>
+        <h3>Suivi post-opératoire</h3>
+        <p>Continuité des rendez-vous de contrôle, joignabilité en cas de complication, accompagnement sur la repousse à 6 et 12 mois.</p>
+      </div>
+      <div class="crit">
+        <span class="num">05</span>
+        <h3>Résultats à long terme</h3>
+        <p>Photos avant/après vérifiables, taux de reprise des greffons à 12 mois quand il est communiqué, cas documentés.</p>
+      </div>
+      <div class="crit">
+        <span class="num">06</span>
+        <h3>Rapport qualité-prix</h3>
+        <p>Ce que le forfait inclut réellement — bilan, anesthésie, hébergement, suivi — et sa cohérence avec le protocole annoncé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="classement">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Le classement complet</h2>
+      <p class="sub">Cliniques triées par note globale sur 100. Cliquez sur une fiche pour la méthodologie détaillée par clinique.</p>
+    </div>
+    <table class="rank-table">
+      <thead>
+        <tr>
+          <th style="width:36px;">#</th>
+          <th>Clinique</th>
+          <th>Praticien au bloc</th>
+          <th>Note</th>
+          <th>Dossier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rk">1</td>
+          <td class="clinic-cell"><b><span class="flag">🇫🇷</span>Dr. Karim Benaïssa</b><span>Lyon, Rhône</span></td>
+          <td>Chirurgien unique, tous les actes</td>
+          <td><span class="score-pill">87 / 100</span></td>
+          <td><span class="doc-tag high">Dossier complet</span></td>
+        </tr>
+        <tr>
+          <td class="rk">2</td>
+          <td class="clinic-cell"><b><span class="flag">🇫🇷</span>Institut Follicis</b><span>Paris 9e</span></td>
+          <td>Équipe de 4, rotation encadrée</td>
+          <td><span class="score-pill">84 / 100</span></td>
+          <td><span class="doc-tag high">Dossier complet</span></td>
+        </tr>
+        <tr>
+          <td class="rk">3</td>
+          <td class="clinic-cell"><b><span class="flag">🇹🇷</span>Clinique Aydın</b><span>Istanbul</span></td>
+          <td>Établissement dédié, chef d'équipe</td>
+          <td><span class="score-pill">79 / 100</span></td>
+          <td><span class="doc-tag">Dossier partiel</span></td>
+        </tr>
+        <tr>
+          <td class="rk">4</td>
+          <td class="clinic-cell"><b><span class="flag">🇫🇷</span>Cabinet Reverdy</b><span>Nantes</span></td>
+          <td>Chirurgien unique</td>
+          <td><span class="score-pill">75 / 100</span></td>
+          <td><span class="doc-tag high">Dossier complet</span></td>
+        </tr>
+        <tr>
+          <td class="rk">5</td>
+          <td class="clinic-cell"><b><span class="flag">🇫🇷</span>Polyclinique du Marais</b><span>Paris 3e</span></td>
+          <td>Équipe de 5, non systématique</td>
+          <td><span class="score-pill">72 / 100</span></td>
+          <td><span class="doc-tag">Dossier partiel</span></td>
+        </tr>
+        <tr>
+          <td class="rk">6</td>
+          <td class="clinic-cell"><b><span class="flag">🇪🇸</span>Clínica Bellver</b><span>Barcelone</span></td>
+          <td>Chirurgien unique</td>
+          <td><span class="score-pill">69 / 100</span></td>
+          <td><span class="doc-tag">Dossier partiel</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="villes">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selon votre situation</h2>
+      <p class="sub">Quatre points d'entrée pour aller directement à ce qui vous concerne.</p>
+    </div>
+    <div class="sit-grid">
+      <a class="sit-card" href="#">
+        <span class="k">Par ville</span>
+        <h3>Je cherche une clinique près de chez moi</h3>
+        <span class="arrow">Voir les classements locaux →</span>
+      </a>
+      <a class="sit-card" href="#">
+        <span class="k">Comparer</span>
+        <h3>France ou Turquie : que change le pays ?</h3>
+        <span class="arrow">Ce que ça change vraiment →</span>
+      </a>
+      <a class="sit-card" href="#">
+        <span class="k">Signaux d'alerte</span>
+        <h3>J'ai peur de me tromper de clinique</h3>
+        <span class="arrow">Les points à vérifier avant de signer →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="apropos">
+  <div class="wrap">
+    <div class="indep">
+      <div>
+        <h2>Indépendance</h2>
+        <p>Nous ne vendons rien, nous ne touchons aucune commission de mise en relation, et nous jugeons chaque clinique sur des critères médicaux vérifiables.</p>
+        <a href="#" class="indep-link">Qui sommes-nous →</a>
+      </div>
+      <ul>
+        <li><span class="check">✓</span> Aucune clinique ne peut acheter sa place dans le classement.</li>
+        <li><span class="check">✓</span> La même grille de notation pour toutes les cliniques, France comme étranger.</li>
+        <li><span class="check">✓</span> Droit de réponse et correction des erreurs factuelles signalées.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="guides">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Les guides essentiels</h2>
+      <p class="sub">Pour préparer une première consultation sans se laisser impressionner.</p>
+    </div>
+    <div class="guide-strip">
+      <a class="guide-item" href="#"><span class="num">01</span><h3>Bien choisir sa clinique de greffe</h3></a>
+      <a class="guide-item" href="#"><span class="num">02</span><h3>FUE, FUT, DHI : comprendre les techniques</h3></a>
+      <a class="guide-item" href="#"><span class="num">03</span><h3>Les questions à poser en consultation</h3></a>
+      <a class="guide-item" href="#"><span class="num">04</span><h3>Les signaux d'alerte avant de signer</h3></a>
+      <a class="guide-item" href="#"><span class="num">05</span><h3>Suis-je un bon candidat à la greffe ?</h3></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">L'Observatoire de la Greffe Capillaire</div>
+        <p class="foot-desc">Comparatif indépendant des cliniques de greffe de cheveux. Contenu d'exemple à des fins de démonstration.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Comparer</h4>
+        <a href="#classement">Classement</a>
+        <a href="#villes">Par ville</a>
+        <a href="#methode">Méthodologie</a>
+      </div>
+      <div class="foot-col">
+        <h4>Le site</h4>
+        <a href="#guides">Guides</a>
+        <a href="#apropos">À propos</a>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 L'Observatoire de la Greffe Capillaire — site de démonstration, contenu fictif.</span>
+      <span>Ne remplace pas une consultation médicale.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
